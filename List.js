@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
   return (
     <li
-      style={{ backgroundColor: isSelected ? "green" : "red" }}
       onClick={() => onClickHandler(index)}
+      className={isSelected ? "green" : "red"}
     >
       {text}
     </li>
@@ -35,7 +35,7 @@ const WrappedListComponent = ({ items }) => {
   };
 
   return (
-    <ul style={{ textAlign: "left" }}>
+    <ul className='list'>
       {items.map((item, index) => (
         <SingleListItem
           onClickHandler={() => handleClick(index)}
@@ -43,7 +43,6 @@ const WrappedListComponent = ({ items }) => {
           index={index}
           isSelected={selectedIndex === index}
           key={item.id}
-          //before: isSelected={selectedIndex}
         />
       ))}
     </ul>
